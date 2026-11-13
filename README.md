@@ -1,6 +1,6 @@
-# Práctica: Git en entornos distribuidos
+# Práctica de repaso: ramas remotas
 
-Practicamos con comandos de Git cómo se trabaja entre varias personas con un repositorio remoto: traer los cambios de otro, subir los tuyos cuando otro ya ha subido los suyos, resolver un conflicto con `merge`, reorganizar con `rebase`, compartir una rama y proponer cambios con un *fork* y un *pull request*. Como la práctica es individual, **harás de dos personas**: tú y un compañero imaginario, cada uno con su propia copia del repositorio.
+Repasamos con comandos de Git lo visto de ramas en la UD2.3, ahora con un repositorio remoto (Pro Git 3.5, «Ramas remotas», y 3.6, «Reorganizar el trabajo realizado»): traer los cambios de otro, subir los tuyos cuando otro ya ha subido los suyos, resolver un conflicto con `merge`, reorganizar con `rebase`, compartir una rama y proponer cambios con un *fork* y un *pull request*. Como la práctica es individual, **harás de dos personas**: tú y un compañero imaginario, cada uno con su propia copia del repositorio.
 
 Sigue este guion paso a paso, sin saltarte ninguno. Las partes 1 a 6 llevan alrededor de una hora; si lo necesitas, puedes parar al final de una parte y seguir otro día. La parte 0 es solo para el profesor.
 
@@ -79,7 +79,7 @@ git push origin master
 
 👀 Se abre tu repositorio, `TU_USUARIO/practica_remotos`, y debajo del nombre pone `forked from victorrpf/practica_remotos_base`.
 
-💡 Un **fork** es una copia del repositorio de otra persona en tu cuenta de GitHub. En el del profesor no puedes subir nada; en tu fork, sí. Al final le propondrás tus cambios con un *pull request* (Pro Git 5.2, «Proyecto público bifurcado», y 6.2).
+💡 Un **fork** es una copia del repositorio de otra persona en tu cuenta de GitHub. En el del profesor no puedes subir nada; en tu fork, sí. Al final le propondrás tus cambios con un *pull request* (Pro Git 6.2, «Participando en proyectos»).
 
 ⚠️ En tu fork, no pulses **Sync fork** ni **Contribute**.
 
@@ -318,7 +318,7 @@ hint: have locally. ...
 
 En español, `error: falló el empuje de algunas referencias a…` y `ayuda: Actualizaciones fueron rechazadas porque el remoto contiene trabajo que no existe localmente…`.
 
-💡 GitHub tiene un commit que esta copia no tiene, «Añade pimientos». Si aceptara tu push, ese commit se perdería. Primero tienes que traerlo y juntarlo con el tuyo en tu copia; después ya podrás subir (Pro Git 5.2, «Pequeño equipo privado»).
+💡 GitHub tiene un commit que esta copia no tiene, «Añade pimientos». Si aceptara tu push, ese commit se perdería. Primero tienes que traerlo y juntarlo con el tuyo en tu copia; después ya podrás subir (Pro Git 2.5, «Enviar a tus remotos»).
 
 **27.** Trae los cambios:
 
@@ -600,7 +600,7 @@ git commit -a -m "Añade zumo"
 git push -u origin bebidas
 ```
 
-📝 `git push origin bebidas` sube la rama `bebidas`. `-u` (de *upstream*) además asocia tu rama `bebidas` con la rama remota `origin/bebidas`, para que Git sepa con cuál comparar (Pro Git 5.2 y 3.5, «Hacer seguimiento a las ramas»).
+📝 `git push origin bebidas` sube la rama `bebidas`. `-u` (de *upstream*) además asocia tu rama `bebidas` con la rama remota `origin/bebidas`, para que Git sepa con cuál comparar (Pro Git 3.5, «Hacer seguimiento a las ramas»; `git push -u` sale en el 5.2).
 
 👀 `* [new branch]      bebidas -> bebidas` y `branch 'bebidas' set up to track 'origin/bebidas'.` (en español, `rama 'bebidas' configurada para rastrear 'origin/bebidas'.`). GitHub añade unas líneas `remote:` con un enlace para crear un *pull request*: no lo abras.
 
