@@ -2,12 +2,12 @@
 
 Repasamos con comandos de Git lo visto de ramas en la UD2.3, ahora con un repositorio remoto (Pro Git 3.5, «Ramas remotas», y 3.6, «Reorganizar el trabajo realizado»): traer los cambios de otro, subir los tuyos cuando otro ya ha subido los suyos, resolver un conflicto con `merge`, reorganizar con `rebase`, compartir una rama y proponer cambios con un *fork* y un *pull request*. Como la práctica es individual, **harás de dos personas**: tú y un compañero imaginario, cada uno con su propia copia del repositorio.
 
-Sigue este guion paso a paso, sin saltarte ninguno. Las partes 1 a 6 llevan alrededor de una hora; si lo necesitas, puedes parar al final de una parte y seguir otro día. La parte 0 es solo para el profesor.
+Sigue este guion paso a paso, sin saltarte ninguno. Las partes 1 a 6 llevan alrededor de una hora; si lo necesitas, puedes parar al final de una parte y seguir otro día.
 
 ## ⚠️ Antes de empezar
 
 - 💻 Todo lo de Git se hace con **comandos de Git** en la terminal **Git Bash** de VS Code, como en la práctica de ramas: **Terminal > Nuevo terminal** (*Terminal > New Terminal*) y, a la derecha del panel de la terminal, flecha **∨** junto al **+** > **Git Bash**. Las carpetas y los archivos se crean, se abren y se editan desde VS Code.
-- 👥 **Vas a ser dos personas.** Tendrás dos copias del repositorio, en dos carpetas: `yo` (tú) y `companero` (tu compañero). Cada paso dice en cuál va. Antes de escribir un comando, mira en la línea de Git Bash en qué carpeta estás: termina en `practica_remotos/yo (master)` o en `practica_remotos/companero (master)`. Para pasar de una carpeta a otra usarás `cd`, el único comando de la práctica que no es de Git.
+- 👥 **Vas a ser dos personas, pero no necesitas otra cuenta de GitHub.** Tendrás en tu portátil dos copias de tu fork, en dos carpetas: `yo` (tú) y `companero` (tu compañero). Las dos suben a tu fork con tu cuenta; la única diferencia es que en la copia del compañero los commits llevan otro nombre de autor (paso 6), para que en el historial se vea quién hizo cada cosa. Hacen falta dos copias para ver qué pasa cuando dos personas cambian a la vez el mismo repositorio remoto: que GitHub rechace un push, traer los cambios del otro y resolver un conflicto. Cada paso dice en qué copia va. Antes de escribir un comando, mira en la línea de Git Bash en qué carpeta estás: termina en `practica_remotos/yo (master)` o en `practica_remotos/companero (master)`. Para pasar de una carpeta a otra usarás `cd`, el único comando de la práctica que no es de Git.
 - 🔢 Cada paso tiene **como mucho un comando**. Escríbelo o cópialo, pulsa **Intro** y no pases al siguiente hasta ver el resultado. Como en la práctica de ramas, debajo de cada comando tienes:
   - 📝 qué hace el comando y cada una de sus partes;
   - 👀 qué verás al ejecutarlo;
@@ -21,52 +21,6 @@ Sigue este guion paso a paso, sin saltarte ninguno. Las partes 1 a 6 llevan alre
 - 🌐 Git puede mostrar sus mensajes en inglés o en español, según el ordenador. El guion da el inglés y, en los mensajes importantes, el español. Las líneas de resumen de `git push` (`[new branch]`, `[rejected]`, `[deleted]`) salen siempre en inglés.
 - 🚫 **No uses `git pull`**, aunque Git te lo sugiera en sus mensajes. `git pull` es un `git fetch` seguido de un `git merge` (Pro Git 3.5, «Traer y fusionar»): aquí haremos los dos comandos por separado, para ver qué pasa entre uno y otro.
 - 📖 Si al final de la terminal aparece `:`, Git te está mostrando la salida por páginas: pulsa **q** para salir.
-
----
-
-## 0️⃣ Parte 0. Solo el profesor: crear el repositorio base
-
-> Si eres alumno, salta a la Parte 1: este repositorio ya está creado y vas a hacer un *fork* de él.
-
-**0.1.** Dentro de `vs_projects`, crea una carpeta `practica_remotos_base` y copia en ella `index.html` y este `README.md`. Ábrela con **Archivo > Abrir carpeta** y abre una terminal de **Git Bash**.
-
-**0.2.** Convierte la carpeta en un repositorio con la rama `master`:
-
-```
-git init -b master
-```
-
-**0.3.** Prepara los dos archivos:
-
-```
-git add .
-```
-
-**0.4.** Guarda el primer commit:
-
-```
-git commit -m "Punto de partida"
-```
-
-**0.5.** En [github.com](https://github.com) crea el repositorio **vacío** `practica_remotos_base`: **+ > New repository**, **Public**, **Add README** desactivado, sin `.gitignore` ni licencia, y **Create repository**.
-
-**0.6.** Añade el remoto:
-
-```
-git remote add origin https://github.com/victorrpf/practica_remotos_base.git
-```
-
-**0.7.** Sube la rama `master`:
-
-```
-git push origin master
-```
-
-**0.8.** **No lo archives**, a diferencia de `practica_ramas_base`: en un repositorio archivado no se pueden abrir *pull requests*, y la Parte 6 termina con uno. Los alumnos tampoco pueden subir nada aquí, porque no tienen permiso de escritura: por eso hacen el fork.
-
-**0.9.** GitHub no deja hacer un fork de un repositorio propio en la misma cuenta. Para ensayar la práctica, haz el fork en una organización tuya (**+ > New organization**, plan gratuito) o con una segunda cuenta.
-
-**0.10.** Los *pull requests* de los alumnos llegan a la pestaña **Pull requests** de este repositorio. No los fusiones (**Merge pull request**): solo se revisan.
 
 ---
 
